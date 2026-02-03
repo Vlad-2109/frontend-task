@@ -25,7 +25,7 @@ const Navbar = () => {
   ];
 
   return (
-    <div className="w-full max-w-[906px] flex justify-between font-(family-name:--font-montserrat) font-extrabold text-sm">
+    <ul className="w-full max-w-[906px] flex justify-between list-none font-(family-name:--font-montserrat) font-extrabold text-sm">
       {links.map((link, index) => (
         <NavLink
           key={link.to}
@@ -52,7 +52,7 @@ const Navbar = () => {
           }}
         </NavLink>
       ))}
-    </div>
+    </ul>
   );
 };
 
