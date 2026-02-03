@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 const BlogPostIntro = () => {
   return (
-    <div className="flex flex-col gap-5 py-10">
+    <section className="flex flex-col gap-5 py-10">
       <p>
         <strong>
           Kaj vse je potrebno narediti na WordPress spletni strani, da ta ostane
@@ -35,7 +35,7 @@ const BlogPostIntro = () => {
         </Link>
         , vzdrževanje pa bo opravljeno <strong>vsak mesec!</strong>
       </p>
-    </div>
+    </section>
   );
 };
 
