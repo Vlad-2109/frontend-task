@@ -13,6 +13,8 @@ import ListItemText from '@mui/material/ListItemText';
 import Typography from '@mui/material/Typography';
 import * as React from 'react';
 import CartIcon from '../../../assets/icons/ui/cart.svg';
+import NetworkStatusIcon from '../../../assets/icons/ui/network-status.svg';
+import UserIcon from '../../../assets/icons/ui/user.svg';
 import type { NavigationLink } from '../../../types';
 
 export default function FullScreenHamburgerMenu() {
@@ -62,7 +64,8 @@ export default function FullScreenHamburgerMenu() {
 				<Box
 					sx={{
 						position: 'fixed',
-						inset: 0,
+            inset: 0,
+            color: '#002b01',
 						bgcolor: 'white',
 						zIndex: 1300,
 						display: 'flex',
@@ -121,8 +124,6 @@ export default function FullScreenHamburgerMenu() {
 						</Box>
 					</Box>
 
-					<Divider />
-
 					<List>
 						{links.map((link, index) => (
 							<React.Fragment key={link.to}>
@@ -131,6 +132,7 @@ export default function FullScreenHamburgerMenu() {
 										component={NavLink}
 										to={link.to}
 										onClick={handleClose}
+										sx={{ pl: 4 }}
 									>
 										<ListItemText
 											primary={
@@ -148,10 +150,95 @@ export default function FullScreenHamburgerMenu() {
 										/>
 									</ListItemButton>
 								</ListItem>
-								{index < 5 && <Divider />}
+								{index < 5 && <Divider sx={{ mx: 'auto', width: '90%' }} />}
 							</React.Fragment>
 						))}
 					</List>
+
+					<Divider
+						sx={{ borderBottomWidth: 3, my: 2, mx: 'auto', width: '90%' }}
+					/>
+
+					<Box
+						sx={{
+							display: 'flex',
+							flexDirection: 'row',
+							px: 3,
+							py: 2,
+						}}
+					>
+						<Box
+							sx={{
+								display: 'flex',
+								flexDirection: 'column',
+								alignItems: 'start',
+								gap: 3,
+								width: '50%',
+							}}
+						>
+							<Box
+								sx={{
+									display: 'flex',
+									alignItems: 'center',
+									gap: 1,
+								}}
+							>
+								<img
+									src={NetworkStatusIcon}
+									alt="Stanje omrežja"
+									style={{ width: 16, height: 16 }}
+								/>
+								<Typography sx={{ fontSize: '14px', fontWeight: 700 }}>
+									Stanje omrežja
+								</Typography>
+							</Box>
+							<Box>
+								<Typography sx={{ fontSize: '12px', fontWeight: 700, mb: 0.5 }}>
+									Non-stop 24/7
+								</Typography>
+								<Typography sx={{ fontSize: '14px', fontWeight: 700 }}>
+									podpora@zabec.net
+								</Typography>
+							</Box>
+						</Box>
+
+						<Box
+							sx={{
+								display: 'flex',
+								flexDirection: 'column',
+								alignItems: 'start',
+								gap: 3,
+								width: '50%',
+								fontSize: '12px',
+							}}
+						>
+							<Box
+								sx={{
+									display: 'flex',
+									flexDirection: 'row',
+									alignItems: 'center',
+									gap: 1,
+								}}
+							>
+								<img
+									src={UserIcon}
+									alt="Moj Žabec"
+									style={{ width: 16, height: 16 }}
+								/>
+								<Typography sx={{ fontSize: '14px', fontWeight: 700 }}>
+									Moj Žabec
+								</Typography>
+							</Box>
+							<Box>
+								<Typography sx={{ fontSize: '12px', fontWeight: 700, mb: 0.5 }}>
+									Delovniki 8:00-20:00
+								</Typography>
+								<Typography sx={{ fontSize: '14px', fontWeight: 700 }}>
+									040 333 666
+								</Typography>
+							</Box>
+						</Box>
+					</Box>
 				</Box>
 			)}
 		</>
