@@ -1,13 +1,13 @@
-import FooterBottom from "./FooterBottom";
-import FooterTop from "./FooterTop";
+import FooterBottom from './FooterBottom';
+import FooterTop from './FooterTop';
 
 const Footer = () => {
-  return (
-    <div className="flex flex-col">
-      <FooterTop />
-      <FooterBottom />
-    </div>
-  );
+	return (
+		<footer className="flex flex-col">
+			<FooterTop />
+			<FooterBottom />
+		</footer>
+	);
 };
 
 export default Footer;
