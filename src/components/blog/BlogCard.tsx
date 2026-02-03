@@ -19,7 +19,7 @@ const BlogCard = ({
   buttonText,
 }: BlogCardProps) => {
   return (
-    <div className="flex flex-col dark:bg-gray-800">
+    <article className="flex flex-col dark:bg-gray-800">
       <NavLink to="/blog">
         <img
           src={image}
@@ -50,7 +50,7 @@ const BlogCard = ({
           />
         </NavLink>
       </div>
-    </div>
+    </article>
   );
 };
 
