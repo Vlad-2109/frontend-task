@@ -62,11 +62,10 @@ export default function FullScreenHamburgerMenu() {
 
 			{open && (
 				<Box
+					className=" bg-white dark:bg-[#6B7A90] text-[#002b01] dark:text-gray-300"
 					sx={{
 						position: 'fixed',
-            inset: 0,
-            color: '#002b01',
-						bgcolor: 'white',
+						inset: 0,
 						zIndex: 1300,
 						display: 'flex',
 						flexDirection: 'column',
@@ -90,6 +89,7 @@ export default function FullScreenHamburgerMenu() {
 							onClick={handleClose}
 						>
 							<Typography
+								className="text-[#002b01] dark:text-gray-300"
 								sx={{
 									fontWeight: 700,
 									fontSize: '14px',
@@ -106,7 +106,7 @@ export default function FullScreenHamburgerMenu() {
 								onClick={handleClose}
 							>
 								<IconButton>
-									<PersonOutlineIcon />
+									<PersonOutlineIcon className="text-[#002b01] dark:text-gray-300" />
 								</IconButton>
 							</NavLink>
 							<NavLink
@@ -115,11 +115,15 @@ export default function FullScreenHamburgerMenu() {
 								onClick={handleClose}
 							>
 								<IconButton>
-									<img src={CartIcon} alt="Košarica" />
+									<img
+										src={CartIcon}
+										alt="Košarica"
+										className="brightness-0 dark:invert"
+									/>
 								</IconButton>
 							</NavLink>
 							<IconButton onClick={handleClose}>
-								<CloseIcon />
+								<CloseIcon className="text-[#002b01] dark:text-gray-300" />
 							</IconButton>
 						</Box>
 					</Box>
@@ -223,6 +227,7 @@ export default function FullScreenHamburgerMenu() {
 								<img
 									src={UserIcon}
 									alt="Moj Žabec"
+									className="brightness-0 dark:invert"
 									style={{ width: 16, height: 16 }}
 								/>
 								<Typography sx={{ fontSize: '14px', fontWeight: 700 }}>
