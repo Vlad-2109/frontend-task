@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { NavLink } from 'react-router-dom';
 import CloseIcon from '@mui/icons-material/Close';
 import MenuIcon from '@mui/icons-material/Menu';
 import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
@@ -12,12 +13,13 @@ import ListItemText from '@mui/material/ListItemText';
 import Typography from '@mui/material/Typography';
 import * as React from 'react';
 import CartIcon from '../../../assets/icons/ui/cart.svg';
+import type { NavigationLink } from '../../../types';
 
 export default function FullScreenHamburgerMenu() {
 	const [open, setOpen] = useState<boolean>(false);
-  const [isAnimating, setIsAnimating] = useState<boolean>(false);
-  
-  useEffect(() => {
+	const [isAnimating, setIsAnimating] = useState<boolean>(false);
+
+	useEffect(() => {
 		if (open) {
 			document.body.style.overflow = 'hidden';
 		} else {
@@ -38,6 +40,15 @@ export default function FullScreenHamburgerMenu() {
 		setIsAnimating(false);
 		setTimeout(() => setOpen(false), 300);
 	};
+
+	const links: NavigationLink[] = [
+		{ name: 'DOMENE', to: '/domains' },
+		{ name: 'GOSTOVANJE', to: '/hosting' },
+		{ name: 'WORDPRESS', to: '/wordpress' },
+		{ name: 'SPLETNE TRGOVINE', to: '/onlinestores' },
+		{ name: 'VPS GOSTOVANJE', to: '/vpshosting' },
+		{ name: 'ZNANJE IN NOVOSTI', to: '/' },
+	];
 
 	return (
 		<>
@@ -70,22 +81,40 @@ export default function FullScreenHamburgerMenu() {
 							py: 2,
 						}}
 					>
-						<Typography
-							sx={{
-								fontWeight: 700,
-								fontSize: '14px',
-							}}
+						<NavLink
+							to="/"
+							style={{ textDecoration: 'none', color: 'inherit' }}
+							onClick={handleClose}
 						>
-							EN
-						</Typography>
+							<Typography
+								sx={{
+									fontWeight: 700,
+									fontSize: '14px',
+								}}
+							>
+								EN
+							</Typography>
+						</NavLink>
 
 						<Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-							<IconButton>
-								<PersonOutlineIcon />
-							</IconButton>
-							<IconButton>
-								<img src={CartIcon} alt="Košarica" />
-							</IconButton>
+							<NavLink
+								to="/"
+								style={{ display: 'flex', alignItems: 'center' }}
+								onClick={handleClose}
+							>
+								<IconButton>
+									<PersonOutlineIcon />
+								</IconButton>
+							</NavLink>
+							<NavLink
+								to="/"
+								style={{ display: 'flex', alignItems: 'center' }}
+								onClick={handleClose}
+							>
+								<IconButton>
+									<img src={CartIcon} alt="Košarica" />
+								</IconButton>
+							</NavLink>
 							<IconButton onClick={handleClose}>
 								<CloseIcon />
 							</IconButton>
@@ -95,17 +124,14 @@ export default function FullScreenHamburgerMenu() {
 					<Divider />
 
 					<List>
-						{[
-							'Domene',
-							'Gostovanje',
-							'Wordpress',
-							'Spletne trgovine',
-							'VPS gostovanje',
-							'Znanje in novosti',
-						].map((text, index) => (
-							<React.Fragment key={text}>
+						{links.map((link, index) => (
+							<React.Fragment key={link.to}>
 								<ListItem disablePadding>
-									<ListItemButton>
+									<ListItemButton
+										component={NavLink}
+										to={link.to}
+										onClick={handleClose}
+									>
 										<ListItemText
 											primary={
 												<Typography
@@ -116,7 +142,7 @@ export default function FullScreenHamburgerMenu() {
 														fontSize: '20px',
 													}}
 												>
-													{text}
+													{link.name}
 												</Typography>
 											}
 										/>
