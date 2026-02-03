@@ -1,0 +1,10 @@
+export { default as blog1 } from "./blog-001.png";
+export { default as blog2 } from "./blog-002.png";
+export { default as blog3 } from "./blog-003.png";
+export { default as blog4 } from "./blog-004.png";
+export { default as blog5 } from "./blog-005.png";
+export { default as blog6 } from "./blog-006.png";
+export { default as blog7 } from "./blog-007.png";
+export { default as blog8 } from "./blog-008.png";
+export { default as blog9 } from "./blog-009.png";
+export { default as logo } from "./logo.png";
