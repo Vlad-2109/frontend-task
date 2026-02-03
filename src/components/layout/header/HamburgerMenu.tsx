@@ -62,6 +62,10 @@ export default function FullScreenHamburgerMenu() {
 
 			{open && (
 				<Box
+					component="aside"
+					role="dialog"
+					aria-modal="true"
+					aria-label="Mobile navigation menu"
 					className=" bg-white dark:bg-[#6B7A90] text-[#002b01] dark:text-gray-300"
 					sx={{
 						position: 'fixed',
@@ -128,36 +132,38 @@ export default function FullScreenHamburgerMenu() {
 						</Box>
 					</Box>
 
-					<List>
-						{links.map((link, index) => (
-							<React.Fragment key={link.to}>
-								<ListItem disablePadding>
-									<ListItemButton
-										component={NavLink}
-										to={link.to}
-										onClick={handleClose}
-										sx={{ pl: 4 }}
-									>
-										<ListItemText
-											primary={
-												<Typography
-													sx={{
-														textTransform: 'uppercase',
-														fontFamily: 'Montserrat, sans-serif',
-														fontWeight: 800,
-														fontSize: '20px',
-													}}
-												>
-													{link.name}
-												</Typography>
-											}
-										/>
-									</ListItemButton>
-								</ListItem>
-								{index < 5 && <Divider sx={{ mx: 'auto', width: '90%' }} />}
-							</React.Fragment>
-						))}
-					</List>
+					<Box component="nav" aria-label="Main navigation">
+						<List>
+							{links.map((link, index) => (
+								<React.Fragment key={link.to}>
+									<ListItem disablePadding>
+										<ListItemButton
+											component={NavLink}
+											to={link.to}
+											onClick={handleClose}
+											sx={{ pl: 4 }}
+										>
+											<ListItemText
+												primary={
+													<Typography
+														sx={{
+															textTransform: 'uppercase',
+															fontFamily: 'Montserrat, sans-serif',
+															fontWeight: 800,
+															fontSize: '20px',
+														}}
+													>
+														{link.name}
+													</Typography>
+												}
+											/>
+										</ListItemButton>
+									</ListItem>
+									{index < 5 && <Divider sx={{ mx: 'auto', width: '90%' }} />}
+								</React.Fragment>
+							))}
+						</List>
+					</Box>
 
 					<Divider
 						sx={{ borderBottomWidth: 3, my: 2, mx: 'auto', width: '90%' }}
