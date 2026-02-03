@@ -58,14 +58,14 @@ const FooterBottom = () => {
     <div className="bg-[#002A00] py-10 dark:bg-gray-900">
       <div className="flex flex-col md:flex-row w-full max-w-[1216px] mx-auto gap-15 md:gap-10 lg:gap-15 xl:gap-20 font-normal text-sm font-(family-name:--font-anonymous) text-white dark:text-gray-300 pl-10 xl:pl-0">
         {FOOTER_SECTIONS.map((section) => (
-          <div key={section.title} className="flex flex-col gap-2">
-            <h3 className="uppercase font-bold">{section.title}</h3>
+          <nav key={section.title} aria-labelledby={`footer-${section.title}`} className="flex flex-col gap-2">
+            <h3 id={`footer-${section.title}`} className="uppercase font-bold">{section.title}</h3>
             {section.links.map((link) => (
               <Link key={link.name} to={link.to}>
                 {link.name}
               </Link>
             ))}
-          </div>
+          </nav>
         ))}
 
         <div
